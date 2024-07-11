@@ -7,6 +7,9 @@
             [(ngModel)]="selected"
             class="form-control"
             placeholder="Choose date"
+            [showCustomRangeLabel]="true"
+            [ranges]="datesRanges"
+            [alwaysShowCalendars]="true"
             [locale]="{ locale, applyLabel: 'Ack', displayFormat: 'YYYY MMM DD', separator: ' :: ' }" />
     </div>
 
