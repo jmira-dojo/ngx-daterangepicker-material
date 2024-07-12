@@ -905,10 +905,14 @@ export class DaterangepickerComponent implements OnInit, OnChanges {
         ) {
           this.chosenLabel = this.chosenRange;
         } else {
-          this.chosenLabel =
-            (this.localeHolder.locale ? this.startDate.locale(this.localeHolder.locale).format(format) : this.startDate.format(format)) +
-            this.locale.separator +
-            (this.localeHolder.locale ? this.endDate.locale(this.localeHolder.locale).format(format) : this.endDate.format(format));
+          const formattedStartDate = this.localeHolder.locale
+            ? this.startDate.locale(this.localeHolder.locale).format(format)
+            : this.startDate.format(format);
+          const formattedEndDate = this.localeHolder.locale
+            ? this.endDate.locale(this.localeHolder.locale).format(format)
+            : this.endDate.format(format);
+
+          this.chosenLabel = formattedStartDate + this.locale.separator + formattedEndDate;
         }
       }
     } else if (this.autoUpdateInput) {
